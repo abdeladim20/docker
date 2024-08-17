@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/Style/home.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ascii-Art-Web</title>
+  </head>
+  <body>
+    <h1>Ascii-Art-Web</h1>
+    <form action="/ascii-art" method="POST">
+        <div class="banner">
+          <label class="Input" for="Input" ><b class="Input">INPUT</b></label><br>
+          <textarea id="InputId" name="Input" maxlength="250" placeholder="Type Somthing here..." required></textarea><br>
+          <input class="submit" type="submit" value="Submit" >
+          <br><br>
+      </div>
+
+      <div class="select-banner">
+        <h3>Please select a banner:</h3>
+            <input type="radio" id="StandardId" name="Banner" value="standard" checked>
+            <label for="StandardId">Standard</label>
+            <input type="radio" id="ThinkertoyId" name="Banner" value="thinkertoy">
+            <label for="ThinkertoyId">Thinkertoy</label>
+            <input type="radio" id="ShadowId" name="Banner" value="shadow">
+            <label for="ShadowId">Shadow</label> <br>
+      </div> 
+        <br><br>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+body{
+    background-image: url("4.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: azure;
+}
+
+h1{
+    text-align: center;
+    color: #ff0000;
+}
+
+form{
+    text-align: center;
+}
+
+.Input{
+    /* padding: 15px; */
+    /* margin: auto; */
+    font-size: large;
+    color: #ff0000;
+}
+
+#InputId {
+    background-color: #161515;
+    backdrop-filter: blur(10px);
+    color: azure;
+    width: 85%;
+    height: 150px;
+    padding: 25px;
+    margin: 15px;
+}
+
+.banner {
+    backdrop-filter: blur(10px);
+    border: 2px double #aa0003;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.select-banner{
+    max-width: fit-content;
+    backdrop-filter: blur(10px);
+    border: 2px double #aa0003;
+    padding: 20px 20px 20px 20px;
+    margin: 15px auto 15px auto;
+    border-radius: 15px;
+    /* width: 90%; */
+    /* border-width: 20px; */
+}
+
+.submit{
+    width: 100px;
+    height: 40px;
+    color: rgb(240, 240, 240);
+    background-color: #ff0d11;
+    font-size: large;
+}
