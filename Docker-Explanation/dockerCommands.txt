@@ -1,0 +1,40 @@
+****
+-Build the Docker Image: docker build -t <image_name>:<tag> .
+ex : docker build -t ascii-art-web:latest .
+
+explanation : -t <image_name>:<tag>: Tags the image with a name and optional tag (e.g., myapp:latest).
+.: The path to the Dockerfile directory (usually the current directory).
+
+#install bash : RUN apk add --no-cache bash or RUN apk add update && apk add bash
+explanation : This command installs bash from the Alpine package repositories. After adding this line to your Dockerfile and building your image, you'll be able to use bash in your container.
+
+-Run the Docker Container: docker run -d --name <container_name> -p <host_port>:<container_port> <image_name>:<tag>
+ex : docker run -d --name ascii-art-web-container -p 8000:8000 ascii-art-web:latest
+
+explanation : -d: Runs the container in detached mode (in the background).
+--name <container_name>: Assigns a name to the container for easier reference.
+-p <host_port>:<container_port>: Maps a port on the host to a port on the container.
+<image_name>:<tag>: Specifies the image to use (e.g., ascii-art-web:latest).
+
+===============================================================================================================
+
+****Cleaning Up Docker Resources : 
+stop the container : Docker stop (id of the container)
+
+Remove Stopped Containers: docker container prune -f
+
+Remove Dangling Images: docker image prune -f
+
+Remove All Unused Images : docker image prune -a -f
+explanation : -a (or --all): Removes all unused images, not just dangling ones.
+-f (or --force): Skips the confirmation prompt.
+
+ Remove Unused Volumes : docker volume prune -f
+
+Remove Unused Networks : docker network prune -f
+
+Remove All Unused Data : docker system prune -a -f --volumes
+explanation : -a (or --all): Removes all unused images, not just dangling ones.
+--volumes: Also removes unused volumes.
+-f (or --force): Skips the confirmation prompt.
+

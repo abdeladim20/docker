@@ -1,0 +1,10 @@
+1-The script starts by setting the directory where the Dockerfile is located (DOCKERFILE_DIR) and the name and tag for the Docker image (IMAGE_NAME and IMAGE_TAG).
+2-The script then changes to the directory containing the Dockerfile using the cd command.
+3-The docker build command is used to build the Docker image. The -t option specifies the name and tag for the image.
+4-If you want to push the image to a Docker registry, you can uncomment the last line of the script, which uses the docker push command.
+
+To use this script, save it to a file (e.g., build_docker_image.sh) and make it executable with the chmod command:
+chmod +x run.sh
+
+Then, you can run the script with:
+./run.sh

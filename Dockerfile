@@ -6,6 +6,7 @@ WORKDIR /app
 # Copy the Go Modules manifests and download dependencies
 COPY go.mod go.sum ./
 RUN go mod download
+
 #install bash
 RUN apk add update && apk add bash
 
@@ -13,6 +14,7 @@ RUN apk add update && apk add bash
 COPY . .
 
 LABEL "Version" "1.0.0"
+
 # Build the Go binary
 RUN go build -o ascii-art-web
 

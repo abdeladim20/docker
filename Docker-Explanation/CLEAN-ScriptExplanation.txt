@@ -1,0 +1,12 @@
+1-The docker container rm command removes all containers, both stopped and running. The -f option forces the removal without prompting. The $(docker container ls -aq) part retrieves the IDs of all containers.
+2-The docker image prune command removes all unused Docker images. The -a option removes all images without at least one container associated with them, and the -f option forces the operation without prompting.
+3-The docker volume prune command removes all unused Docker volumes. The -f option forces the operation without prompting.
+4-The docker network prune command removes all unused Docker networks. The -f option forces the operation without prompting.
+
+To use this script, save it to a file (e.g., clean_all_docker_resources.sh) and make it executable with the chmod command:
+chmod +x clean.sh
+
+Then, you can run the script with:
+./clean.sh
+
+This will clean up all unused Docker resources, including stopped containers, unused images, volumes, and networks.
