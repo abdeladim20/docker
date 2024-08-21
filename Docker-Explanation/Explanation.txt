@@ -1,0 +1,36 @@
+Certainly! This Dockerfile outlines the steps to build a Docker image for a Go application. Let’s break it down line by line:
+
+1. **`FROM golang:1.22.3-alpine`**
+   - This line specifies the base image for the Docker image you're building. `golang:1.22.3-alpine` is an official Go image based on the Alpine Linux distribution. The `1.22.3` tag indicates the Go version, and `alpine` denotes that it's using the Alpine Linux variant, which is known for being lightweight.
+
+2. **`WORKDIR /app`**
+   - This sets the working directory inside the container to `/app`. Any subsequent `COPY`, `RUN`, or other commands will be executed from this directory. If the directory doesn’t exist, it will be created.
+
+3. **`COPY go.mod go.sum ./`**
+   - This command copies the `go.mod` and `go.sum` files from your local machine into the `/app` directory in the container. These files define your Go module dependencies.
+
+4. **`RUN go mod download`**
+   - This command runs `go mod download` to download the Go module dependencies specified in `go.mod` and `go.sum` files. It ensures that all required packages are available before building the application.
+
+5. **`RUN apk add update && apk add bash`**
+   - `apk` is the package manager for Alpine Linux. This command updates the package index and then installs the `bash` shell. This might be done to ensure you have a shell available for any debugging or script needs.
+
+6. **`COPY . .`**
+   - This command copies the entire contents of your local directory (the context in which the Dockerfile is located) into the current working directory (`/app`) in the container. This includes your Go source code and other files.
+
+7. **`LABEL "Version" "1.0.0"`**
+   - This adds metadata to the image in the form of a label. The key is `"Version"` and the value is `"1.0.0"`. Labels are often used for organizing, categorizing, or versioning Docker images.
+
+8. **`RUN go build -o ascii-art-web`**
+   - This builds your Go application using the `go build` command. The `-o` flag specifies the output file name, which in this case will be `ascii-art-web`. This produces a binary executable file that will be run inside the container.
+
+9. **`COPY Style /app/Style`**
+   - This copies a directory named `Style` from your local machine into the `/app/Style` directory in the container. This could contain static files, such as stylesheets or images, needed by your application.
+
+10. **`CMD [ "./ASCII-ART-WEB" ]`**
+    - This specifies the default command to run when the container starts. `CMD` provides defaults for the container's main process. Here, it runs the `ASCII-ART-WEB` binary. Note: the executable name specified here should match the output of the `go build` command (`ascii-art-web`). This could be a typo; ensure consistency between the build output and the `CMD`.
+
+11. **`EXPOSE 8000`**
+    - This documents that the container listens on port 8000 at runtime. While this doesn’t actually publish the port, it serves as a hint to users of the image and allows Docker to map container ports to host ports during runtime if needed.
+
+In summary, this Dockerfile creates an environment for a Go application, installs necessary dependencies, builds the application, and sets up the container to run the application while exposing a port for network communication.
